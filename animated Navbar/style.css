@@ -1,0 +1,119 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+nav {
+    height: 10vh;
+    background-color: #5b78c7;
+}
+
+.nav-links {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    list-style: none;
+
+    justify-content: space-around;
+    align-items: center;
+    margin-left: auto;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: white;
+}
+
+.landing {
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: purple;
+    font-size: 30px;
+}
+
+.landing img {
+    width: 600px;
+}
+
+
+@media screen and (max-width:768px) {
+    .line {
+        height: 3px;
+        width: 30px;
+        background-color: white;
+        margin: 5px;
+    }
+
+    nav {
+        position: relative;
+    }
+
+    .hamburger {
+        position: absolute;
+        cursor: pointer;
+        right: 5%;
+        top: 50%;
+        transform: translate(-5%, -50%);
+        z-index: 2;
+    }
+
+    .nav-links {
+        position: fixed;
+        background-color: #5b78c7;
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        clip-path: circle(100px at 90% -10%);
+        /* this is a mask */
+        -webkit-clip-path: circle(100px at 90% -10%);
+        /* a better support */
+        transition: all 1s ease-out;
+        pointer-events: none;
+    }
+
+    .nav-links.open {
+        clip-path: circle(1500px at 90% -10%);
+        -webkit-clip-path: circle(1500px at 90% -10%);
+        pointer-events: all;
+    }
+
+    .landing {
+        flex-direction: column;
+    }
+
+    .landing img {
+        width: 400px;
+    }
+
+    .nav-links li {
+        opacity: 0;
+    }
+
+    .nav-links li a {
+        font-size: 25px;
+    }
+
+    .nav-links li:nth-child(1) {
+        transition: all 0.5s ease 0.2s;
+    }
+
+    .nav-links li:nth-child(2) {
+        transition: all 0.5s ease 0.4s;
+    }
+
+    .nav-links li:nth-child(3) {
+        transition: all 0.5s ease 0.6s;
+    }
+
+    li.fade {
+        opacity: 1;
+    }
+}
